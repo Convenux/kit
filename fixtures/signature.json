@@ -1,0 +1,20 @@
+[
+  {
+    "secret": "whsec_test",
+    "timestamp": 1788500000,
+    "body": "{\"id\":\"1\",\"type\":\"edition.updated\"}",
+    "header": "t=1788500000,v1=3216974740febf246391054aa9d973aef69299c6d1f277c358125ef77b0f179f"
+  },
+  {
+    "secret": "another secret",
+    "timestamp": 1700000000,
+    "body": "{\"type\":\"guest.added\",\"data\":{\"guests\":[\"Kana Hanazawa\"]}}",
+    "header": "t=1700000000,v1=dc00b0e634b6e9a5e1af6255d51f2d72db6f7f7a5c8fa51af4b64248f19d069b"
+  },
+  {
+    "secret": "unicode ✓",
+    "timestamp": 1,
+    "body": "",
+    "header": "t=1,v1=629d91d5111aa38c63c6221cc3d61fb10e48a8358afe6f51d5475bcbd1163826"
+  }
+]

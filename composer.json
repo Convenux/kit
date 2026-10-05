@@ -1,0 +1,30 @@
+{
+    "name": "convenux/kit",
+    "description": "Code the Convenux Laravel apps share: one sign-in identity, webhook signatures.",
+    "type": "library",
+    "license": "proprietary",
+    "require": {
+        "php": "^8.4",
+        "illuminate/database": "^13.0",
+        "illuminate/http": "^13.0",
+        "laravel/socialite": "^5.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^13.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Convenux\\Kit\\": "php/src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Convenux\\Kit\\Tests\\": "php/tests/"
+        }
+    },
+    "archive": {
+        "exclude": ["/src", "/node_modules", "/dist", "/fixtures", "/.github", "/package.json", "/package-lock.json", "/tsconfig*.json"]
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
