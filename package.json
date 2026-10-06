@@ -48,7 +48,7 @@
     "./package.json": "./package.json"
   },
   "scripts": {
-    "build": "rm -rf dist && tsc -p tsconfig.build.json && node -e \"const fs = require('node:fs'); for (const f of fs.globSync('dist/**/*.d.ts')) fs.writeFileSync(f, fs.readFileSync(f, 'utf8').replace(/(?<=from \\\"\\.{1,2}\\/[^\\\"]+)\\.tsx?(?=\\\")/g, '.js'))\"",
+    "build": "node build.mjs",
     "typecheck": "tsc --noEmit",
     "test": "node --test --experimental-strip-types \"src/**/*.test.ts\"",
     "prepublishOnly": "npm run build"
