@@ -37,9 +37,12 @@ describe("paths", () => {
 });
 
 describe("dateRange", () => {
+  // ICU versions disagree on the spaces around the dash.
+  const tight = (range: string | null) => range?.replace(/\s*–\s*/, "–");
+
   it("says a run of days once, in the locale's order, on the calendar day given", () => {
-    assert.equal(dateRange("2026-10-23", "2026-10-25", "en-GB"), "23–25 October 2026");
-    assert.equal(dateRange("2026-12-30", "2027-01-02", "en-GB"), "30 December 2026\u2009–\u20092 January 2027");
+    assert.equal(tight(dateRange("2026-10-23", "2026-10-25", "en-GB")), "23–25 October 2026");
+    assert.equal(tight(dateRange("2026-12-30", "2027-01-02", "en-GB")), "30 December 2026–2 January 2027");
     assert.equal(dateRange("2026-10-23", null, "en-GB"), "23 October 2026");
     assert.equal(dateRange(null, "2026-10-25", "en-GB"), null);
   });
