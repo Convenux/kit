@@ -35,7 +35,8 @@ export type CatalogProblems = { missing: string[]; unused: string[]; placeholder
 
 /** What each catalog lacks, keeps for nothing, or translates with different {placeholders}. */
 export function catalogProblems(files: string[], catalogs: Record<string, Catalog>): Record<string, CatalogProblems> {
-  const { singular, plural } = phrases(files.map((file) => readFileSync(file, "utf8")));
+  // A template literal's line breaks are LF at runtime whatever the file has: so must its key be.
+  const { singular, plural } = phrases(files.map((file) => readFileSync(file, "utf8").replace(/\r\n?/g, "\n")));
   const names = (s: string) => (s.match(/\{\w+\}/g) ?? []).sort().join();
   return Object.fromEntries(
     Object.entries(catalogs).map(([lang, catalog]) => [

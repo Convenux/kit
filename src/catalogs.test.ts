@@ -15,3 +15,10 @@ it("finds missing, unused and mismatched phrases", () => {
   });
   assert.deepEqual(problems.nl, { missing: ["Bye"], unused: ["Old"], placeholders: ["Hello {name}"] });
 });
+
+it("reads a multi-line phrase the same from a CRLF checkout", () => {
+  const dir = mkdtempSync(join(tmpdir(), "kit-"));
+  writeFileSync(join(dir, "page.tsx"), "t(`Your plan\r\nis empty.`);");
+  const problems = catalogProblems(sourceFiles(dir), { nl: { "Your plan\nis empty.": "Je plan\nis leeg." } });
+  assert.deepEqual(problems.nl, { missing: [], unused: [], placeholders: [] });
+});
