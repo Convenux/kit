@@ -1,6 +1,6 @@
 {
   "name": "@convenux/kit",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Code the Convenux apps share: i18n, link previews, logo fit and webhook signatures.",
   "license": "UNLICENSED",
   "repository": {
