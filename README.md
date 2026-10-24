@@ -36,6 +36,8 @@ Required straight from this repository:
   people into the same `users` table through it.
 - `Convenux\Kit\Identity\IsAccount` (on each app's `User`), `SocialAccount`, `VerifiedEmail`.
 - `Convenux\Kit\Http\Etag` — an ETag from the body, and the 304.
+- `Convenux\Kit\Http\Proxies::TRUSTED` — Cloudflare's ranges and Docker's private ones, for `trustProxies()`.
+- `Convenux\Kit\Http\SingleValues` — middleware refusing a query parameter sent as a list (`q[]=x`) with a 422.
 
 `fixtures/signature.json` holds test vectors both test suites check, so the two
 implementations cannot drift apart.
